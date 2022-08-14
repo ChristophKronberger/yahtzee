@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="15" failures="0" name="YahtzeeTest" time="0.025" errors="0" skipped="0">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="mvnd.java.home" value="C:\Users\christoph.kronberger\.jdks\openjdk-18.0.1.1"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="jdk.java.options" value="--add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.jar=ALL-UNNAMED --add-opens java.base/sun.nio.fs=ALL-UNNAMED"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.runtime.version" value="18.0.1.1+2-6"/>
+    <property name="user.name" value="christoph.kronberger"/>
+    <property name="mvnd.coreExtensions" value=""/>
+    <property name="mvnd.socketFamily" value="inet"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="mvnd.expirationCheckDelay" value="10s"/>
+    <property name="user.language" value="de"/>
+    <property name="sun.boot.library.path" value="C:\Users\christoph.kronberger\.jdks\openjdk-18.0.1.1\bin"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.version" value="18.0.1.1"/>
+    <property name="user.timezone" value="Europe/Vienna"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="mvnd.daemonStorage" value="C:\Users\christoph.kronberger\.m2\mvnd\registry\0.8.0"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="maven.conf" value="C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\mvn\conf"/>
+    <property name="java.class.version" value="62.0"/>
+    <property name="user.country" value="AT"/>
+    <property name="java.home" value="C:\Users\christoph.kronberger\.jdks\openjdk-18.0.1.1"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="os.version" value="10.0"/>
+    <property name="logback.configurationFile" value="C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\conf\logback.xml"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.version" value="18.0.1.1+2-6"/>
+    <property name="user.variant" value=""/>
+    <property name="mvnd.idleTimeout" value="3h"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="mvnd.home" value="C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64"/>
+    <property name="user.script" value=""/>
+    <property name="mvnd.terminalWidth" value="80"/>
+    <property name="user.home" value="C:\Users\christoph.kronberger"/>
+    <property name="java.version.date" value="2022-04-22"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="mvnd.enableAssertions" value="false"/>
+    <property name="java.library.path" value="C:\Users\christoph.kronberger\.jdks\openjdk-18.0.1.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\christoph.kronberger\bin;C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1\plugins\maven\lib\maven3\bin;C:\Program Files;C:\Winnt;C:\Windows\System32;C:\Gradle\gradle-7.4.2\bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\PowerShell\7\;C:\Users\christoph.kronberger\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1\bin;C:\Users\christoph.kronberger\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\christoph.kronberger\AppData\Local\atom\bin;C:\Program Files (x86)\Sophos\Sophos SSL VPN Client\bin;C:\Users\christoph.kronberger\AppData\Roaming\npm;C:/Users/christoph.kron;C:\Users\christoph.kronberger\.jdks\mandrel-java17-22.2.0.0-Final\bin;C:\Program Files\dotnet\;C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\christoph.kronberger\.jbang\bin;C:\Users\christoph.kronberger\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1\bin;C:\Users\christoph.kronberger\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\christoph.kronberger\AppData\Local\atom\bin;C:\Program Files (x86)\Sophos\Sophos SSL VPN Client\bin;C:\Users\christoph.kronberger\AppData\Roaming\npm;C:/Users/christoph.kronberger/bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;C:\Users\christoph.kronberger\AppData\Local\Programs\Rancher Desktop\resources\resources\win32\bin;C:\Users\christoph.kronberger\AppData\Local\Programs\Rancher Desktop\resources\resources\linux\bin;C:\Users\christoph.kronberger\.dotnet\tools;C:\ProgramData\nvm;C:\Program Files\nodejs;."/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\mvn"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.java.command" value="org.mvndaemon.mvnd.common.MavenDaemon"/>
+    <property name="java.class.path" value="C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\mvn\lib\ext\mvnd-common-0.8.0.jar;C:\Program Files\mvndaemon\mvnd-0.8.0-windows-amd64\mvn\lib\ext\mvnd-agent-0.8.0.jar"/>
+    <property name="mvnd.noDaemon" value="false"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="jansi.mode" value="force"/>
+    <property name="java.vm.specification.version" value="18"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.io.tmpdir" value="C:\Users\CHRIST~1.KRO\AppData\Local\Temp\"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\christoph.kronberger\IdeaProjects\Yahtze"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="user.dir" value="C:\Users\christoph.kronberger\IdeaProjects\Yahtze"/>
+    <property name="mvnd.id" value="14a53830"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="mvnd.debug" value="false"/>
+    <property name="mvnd.duplicateDaemonGracePeriod" value="10s"/>
+    <property name="mvnd.keepAlive" value="100ms"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="mvnd.extClasspath" value=""/>
+    <property name="mvnd.registry" value="C:\Users\christoph.kronberger\.m2\mvnd\registry\0.8.0\registry.bin"/>
+    <property name="java.specification.version" value="18"/>
+  </properties>
+  <testcase classname="YahtzeeTest" name="fullHouse" time="0.017"/>
+  <testcase classname="YahtzeeTest" name="test_2s" time="0"/>
+  <testcase classname="YahtzeeTest" name="test_3s" time="0"/>
+  <testcase classname="YahtzeeTest" name="test_4s" time="0"/>
+  <testcase classname="YahtzeeTest" name="test_5s" time="0"/>
+  <testcase classname="YahtzeeTest" name="test_6s" time="0"/>
+  <testcase classname="YahtzeeTest" name="smallStraight" time="0"/>
+  <testcase classname="YahtzeeTest" name="Yahtzee_scores_50" time="0.003"/>
+  <testcase classname="YahtzeeTest" name="four_of_a_knd" time="0"/>
+  <testcase classname="YahtzeeTest" name="largeStraight" time="0"/>
+  <testcase classname="YahtzeeTest" name="Test_1s" time="0"/>
+  <testcase classname="YahtzeeTest" name="three_of_a_kind" time="0"/>
+  <testcase classname="YahtzeeTest" name="Chance_scores_sum_of_all_dice" time="0.002"/>
+  <testcase classname="YahtzeeTest" name="two_Pair" time="0.003"/>
+  <testcase classname="YahtzeeTest" name="one_pair" time="0"/>
+</testsuite>
