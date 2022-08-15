@@ -39,31 +39,88 @@ public class Yahtzee {
         return (occurred.contains(6)) ? 20 :15 ;
     }
 
+    /**
+     * Chance:
+     *   The player scores the sum of all dice,
+     *   no matter what they read.
+     *   For example,
+     *    1,1,3,3,6 placed on "chance" scores 14 (1+1+3+3+6)
+     * @return the value of all dice
+     */
     public int chance() {
         return Arrays.stream(dices).sum();
     }
 
+    /**
+     * Yahtzee:
+     *   If all dice have the same number,
+     *   the player scores 50 points.
+     *   For example,
+     *    1,1,1,1,1 placed on "yahtzee" scores 50
+     * @return 50 if all dices are ident. else 0
+     */
     public int yahtzee() {
         Set<Integer> set = Arrays.stream(dices).boxed().collect(Collectors.toSet());
         return (set.size() == 1) ? 50 : 0;
     }
 
+    /**
+     * Pair:
+     *   The player scores the sum of the two highest matching dice.
+     *   For example, when placed on "pair"
+     *    3,3,3,4,4 scores 8 (4+4)
+     * @return score of the pair if present, else 0
+     */
     public int scorePair() {
-        return contMultipleOccur(2);
+        return countMultipleOccur(2);
     }
 
+    /**
+     *  Three of a kind:
+     *   If there are three dice with the same number, the player
+     *   scores the sum of these dice.
+     *   For example, when placed on "three of a kind"
+     *     3,3,3,4,5 scores 9 (3+3+3)
+     * @return the value of the triplet if present, else 0
+     */
     public int threeOfAKind() {
-        return contMultipleOccur(3);
+        return countMultipleOccur(3);
     }
 
+    /**
+     * Four of a kind:
+     *   If there are four dice with the same number, the player
+     *   scores the sum of these dice.
+     *   For example, when placed on "four of a kind"
+     *   2,2,2,2,5 scores 8 (2+2+2+2)
+     * @return the value of the Quadruplet if present, else 0
+     */
     public int fourOfAKind() {
-        return contMultipleOccur(4);
+        return countMultipleOccur(4);
     }
 
+    /**
+     * Two pairs:
+     *   If there are two pairs of dice with the same number, the
+     *   player scores the sum of these dice.
+     *   For example, when placed on "two pairs"
+     *    1,1,2,3,3 scores 8 (1+1+3+3)
+     *  @return score of the two pairs if present. else 0
+     */
     public int scoreTwoPairs() {
         List<Integer> scoresOfAllPairs = getScoresOfAllPairs();
         if(scoresOfAllPairs.size() == 2) return scoresOfAllPairs.stream().mapToInt(Integer::valueOf).sum();
         return 0;
+    }
+
+    private List<Integer> getScoresOfAllPairs() {
+        List<Integer> pairs = new ArrayList<>();
+        for (int face = 6; face >= 1; face--) {
+            int amountOfFaces = getAmountOfEqualFaces(face);
+            if (amountOfFaces == 2) pairs.add(face*2);
+        }
+
+        return pairs;
     }
 
     /**
@@ -79,36 +136,26 @@ public class Yahtzee {
        return (scoreThree != 0 && scoreTwo != 0) ? scoreThree + scoreTwo :0;
     }
 
-    private int contMultipleOccur(int amountToCheck) {
+    private int countMultipleOccur(int amountToCheck) {
         for (int face = 6; face >= 1; face--) {
-            int amountOfFaces = getAmoutOfEqualFaces(face);
+            int amountOfFaces = getAmountOfEqualFaces(face);
             if (amountOfFaces == amountToCheck) return amountToCheck * face;
         }
         return 0;
     }
 
-    private int getAmoutOfEqualFaces(int face) {
+    private int getAmountOfEqualFaces(int face) {
         return (int) Arrays.stream(dices)
                 .filter(number -> number == face)
                 .count();
     }
 
-    private List<Integer> getScoresOfAllPairs() {
-        List<Integer> pairs = new ArrayList<>();
-        for (int face = 6; face >= 1; face--) {
-            int finalFace = face;
-            int amountOfFaces = getAmoutOfEqualFaces(finalFace);
-            if (amountOfFaces == 2) pairs.add(face*2);
-        }
-
-        return pairs;
-    }
-
-    public int sumOf(int i) {
-        int sum = 0;
-        for (int die : dices) {
-            if (die == i) sum += i;
-        }
-        return sum;
+    /**
+     * Counts multiple Occurrence of a face.
+     * @param face  to count
+     * @return the score
+     */
+    public int sumOf(int face) {
+        return getAmountOfEqualFaces(face)*face;
     }
 }
