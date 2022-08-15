@@ -88,16 +88,16 @@ public class YahtzeeTest {
 
     @Test
     public void smallStraight() {
-        assertEquals(15, Yahtzee.SmallStraight(1, 2, 3, 4, 5));
-        assertEquals(15, Yahtzee.SmallStraight(2, 3, 4, 5, 1));
-        assertEquals(0, Yahtzee.SmallStraight(1, 2, 2, 4, 5));
+        assertEquals(15,new Yahtzee(1, 2, 3, 4, 5).straight());
+        assertEquals(15,new Yahtzee(2, 3, 4, 5, 1).straight());
+        assertEquals(0, new Yahtzee(1, 2, 2, 4, 5).straight());
     }
 
     @Test
     public void largeStraight() {
-        assertEquals(20, Yahtzee.LargeStraight(6, 2, 3, 4, 5));
-        assertEquals(20, Yahtzee.LargeStraight(2, 3, 4, 5, 6));
-        assertEquals(0, Yahtzee.LargeStraight(1, 2, 2, 4, 5));
+        assertEquals(20, new Yahtzee(6, 2, 3, 4, 5).straight());
+        assertEquals(20, new Yahtzee(2, 3, 4, 5, 6).straight());
+        assertEquals(0,  new Yahtzee(1, 2, 2, 4, 5).straight());
     }
 
     @Test

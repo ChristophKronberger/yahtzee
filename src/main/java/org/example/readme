@@ -93,13 +93,7 @@ Four of a kind:
     2,2,2,5,5 scores 0
     2,2,2,2,2 scores 0
 
-Small straight:
-  When placed on "small straight", if the dice read
-  1,2,3,4,5, the player scores 15 (the sum of all the dice.
 
-Large straight:
-  When placed on "large straight", if the dice read
-  2,3,4,5,6, the player scores 20 (the sum of all the dice).
 
 Full house:
   If the dice are two of a kind and three of a kind, the

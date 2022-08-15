@@ -1,63 +1,50 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Yahtzee {
 
-    protected int[] dice;
+    protected int[] dices;
+
 
     public Yahtzee(int d1, int d2, int d3, int d4, int d5) {
-        dice = new int[5];
-        dice[0] = d1;
-        dice[1] = d2;
-        dice[2] = d3;
-        dice[3] = d4;
-        dice[4] = d5;
-    }
-    public static int SmallStraight(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1 - 1] += 1;
-        tallies[d2 - 1] += 1;
-        tallies[d3 - 1] += 1;
-        tallies[d4 - 1] += 1;
-        tallies[d5 - 1] += 1;
-        if (tallies[0] == 1 &&
-                tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1)
-            return 15;
-        return 0;
+        dices = new int[5];
+        dices[0] = d1;
+        dices[1] = d2;
+        dices[2] = d3;
+        dices[3] = d4;
+        dices[4] = d5;
     }
 
-    public static int LargeStraight(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1 - 1] += 1;
-        tallies[d2 - 1] += 1;
-        tallies[d3 - 1] += 1;
-        tallies[d4 - 1] += 1;
-        tallies[d5 - 1] += 1;
-        if (tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1
-                && tallies[5] == 1)
-            return 20;
-        return 0;
+    /**
+     * Small straight:
+     *   When placed on "small straight", if the dice read
+     *   1,2,3,4,5, the player scores 15 (the sum of all the dice.
+     *
+     * Large straight:
+     *   When placed on "large straight", if the dice read
+     *   2,3,4,5,6, the player scores 20 (the sum of all the dice).
+     * @return 20 if its a large, 15 if its a small straight. 0 if there is no straight.
+     */
+    public int straight() {
+        Set<Integer> occurred = new HashSet<>();
+        for(int dice : dices){
+            occurred.add(dice);
+        }
+       return (occurred.size() == 5) ? smallOrBigStraight(occurred) : 0;
+    }
+
+    private int smallOrBigStraight(Set<Integer> occurred) {
+        return (occurred.contains(6)) ? 20 :15 ;
     }
 
     public int chance() {
-        return Arrays.stream(dice).sum();
+        return Arrays.stream(dices).sum();
     }
 
     public int yahtzee() {
-        Set<Integer> set = Arrays.stream(dice).boxed().collect(Collectors.toSet());
+        Set<Integer> set = Arrays.stream(dices).boxed().collect(Collectors.toSet());
         return (set.size() == 1) ? 50 : 0;
     }
 
@@ -101,7 +88,7 @@ public class Yahtzee {
     }
 
     private int getAmoutOfEqualFaces(int face) {
-        return (int) Arrays.stream(dice)
+        return (int) Arrays.stream(dices)
                 .filter(number -> number == face)
                 .count();
     }
@@ -119,10 +106,9 @@ public class Yahtzee {
 
     public int sumOf(int i) {
         int sum = 0;
-        for (int die : dice) {
+        for (int die : dices) {
             if (die == i) sum += i;
         }
         return sum;
     }
-
 }
