@@ -90,7 +90,6 @@ public class Yahtzee {
         int scoreThree = threeOfAKind();
         int scoreTwo = scorePair();
        return (scoreThree != 0 && scoreTwo != 0) ? scoreThree + scoreTwo :0;
-
     }
 
     private int contMultipleOccur(int amountToCheck) {
