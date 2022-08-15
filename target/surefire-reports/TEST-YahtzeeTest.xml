@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="YahtzeeTest" time="0.025" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="YahtzeeTest" time="0.014" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="mvnd.java.home" value="C:\Users\christoph.kronberger\.jdks\openjdk-18.0.1.1"/>
@@ -65,7 +65,7 @@
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\christoph.kronberger\IdeaProjects\Yahtze"/>
     <property name="os.arch" value="amd64"/>
     <property name="user.dir" value="C:\Users\christoph.kronberger\IdeaProjects\Yahtze"/>
-    <property name="mvnd.id" value="14a53830"/>
+    <property name="mvnd.id" value="0efcc2a7"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -77,19 +77,19 @@
     <property name="mvnd.registry" value="C:\Users\christoph.kronberger\.m2\mvnd\registry\0.8.0\registry.bin"/>
     <property name="java.specification.version" value="18"/>
   </properties>
-  <testcase classname="YahtzeeTest" name="fullHouse" time="0.017"/>
+  <testcase classname="YahtzeeTest" name="fullHouse" time="0.012"/>
   <testcase classname="YahtzeeTest" name="test_2s" time="0"/>
   <testcase classname="YahtzeeTest" name="test_3s" time="0"/>
   <testcase classname="YahtzeeTest" name="test_4s" time="0"/>
   <testcase classname="YahtzeeTest" name="test_5s" time="0"/>
   <testcase classname="YahtzeeTest" name="test_6s" time="0"/>
   <testcase classname="YahtzeeTest" name="smallStraight" time="0"/>
-  <testcase classname="YahtzeeTest" name="Yahtzee_scores_50" time="0.003"/>
-  <testcase classname="YahtzeeTest" name="four_of_a_knd" time="0"/>
+  <testcase classname="YahtzeeTest" name="Yahtzee_scores_50" time="0"/>
+  <testcase classname="YahtzeeTest" name="four_of_a_knd" time="0.001"/>
   <testcase classname="YahtzeeTest" name="largeStraight" time="0"/>
   <testcase classname="YahtzeeTest" name="Test_1s" time="0"/>
   <testcase classname="YahtzeeTest" name="three_of_a_kind" time="0"/>
-  <testcase classname="YahtzeeTest" name="Chance_scores_sum_of_all_dice" time="0.002"/>
-  <testcase classname="YahtzeeTest" name="two_Pair" time="0.003"/>
+  <testcase classname="YahtzeeTest" name="Chance_scores_sum_of_all_dice" time="0"/>
+  <testcase classname="YahtzeeTest" name="two_Pair" time="0.001"/>
   <testcase classname="YahtzeeTest" name="one_pair" time="0"/>
 </testsuite>

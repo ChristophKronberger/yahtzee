@@ -18,35 +18,6 @@ public class Yahtzee {
         dice[3] = d4;
         dice[4] = d5;
     }
-
-    public static int FourOfAKind(int _1, int _2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[_1 - 1]++;
-        tallies[_2 - 1]++;
-        tallies[d3 - 1]++;
-        tallies[d4 - 1]++;
-        tallies[d5 - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (tallies[i] == 4)
-                return (i + 1) * 4;
-        return 0;
-    }
-
-    public static int ThreeOfAKind(int d1, int d2, int d3, int d4, int d5) {
-        int[] t;
-        t = new int[6];
-        t[d1 - 1]++;
-        t[d2 - 1]++;
-        t[d3 - 1]++;
-        t[d4 - 1]++;
-        t[d5 - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (t[i] == 3)
-                return (i + 1) * 3;
-        return 0;
-    }
-
     public static int SmallStraight(int d1, int d2, int d3, int d4, int d5) {
         int[] tallies;
         tallies = new int[6];
@@ -81,40 +52,6 @@ public class Yahtzee {
         return 0;
     }
 
-    public static int FullHouse(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        boolean _2 = false;
-        int i;
-        int _2_at = 0;
-        boolean _3 = false;
-        int _3_at = 0;
-
-
-        tallies = new int[6];
-        tallies[d1 - 1] += 1;
-        tallies[d2 - 1] += 1;
-        tallies[d3 - 1] += 1;
-        tallies[d4 - 1] += 1;
-        tallies[d5 - 1] += 1;
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 2) {
-                _2 = true;
-                _2_at = i + 1;
-            }
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 3) {
-                _3 = true;
-                _3_at = i + 1;
-            }
-
-        if (_2 && _3)
-            return _2_at * 2 + _3_at * 3;
-        else
-            return 0;
-    }
-
     public int chance() {
         return Arrays.stream(dice).sum();
     }
@@ -125,14 +62,15 @@ public class Yahtzee {
     }
 
     public int scorePair() {
-        for (int face = 6; face >= 1; face--) {
-            int finalFace = face;
-            int amountOfFaces = (int) Arrays.stream(dice)
-                    .filter(number -> number == finalFace)
-                    .count();
-            if (amountOfFaces == 2) return 2 * face;
-        }
-        return 0;
+        return contMultipleOccur(2);
+    }
+
+    public int threeOfAKind() {
+        return contMultipleOccur(3);
+    }
+
+    public int fourOfAKind() {
+        return contMultipleOccur(4);
     }
 
     public int scoreTwoPairs() {
@@ -141,13 +79,39 @@ public class Yahtzee {
         return 0;
     }
 
+    /**
+     *  If the dice are two of a kind and three of a kind, the
+     *   player scores the sum of all the dice.
+     *   For example, when placed on "full house"
+     *   1,1,2,2,2 scores 8 (1+1+2+2+2)
+     * @return value of Full house if exist. else 0
+     */
+    public int fullHouse() {
+        int scoreThree = threeOfAKind();
+        int scoreTwo = scorePair();
+       return (scoreThree != 0 && scoreTwo != 0) ? scoreThree + scoreTwo :0;
+
+    }
+
+    private int contMultipleOccur(int amountToCheck) {
+        for (int face = 6; face >= 1; face--) {
+            int amountOfFaces = getAmoutOfEqualFaces(face);
+            if (amountOfFaces == amountToCheck) return amountToCheck * face;
+        }
+        return 0;
+    }
+
+    private int getAmoutOfEqualFaces(int face) {
+        return (int) Arrays.stream(dice)
+                .filter(number -> number == face)
+                .count();
+    }
+
     private List<Integer> getScoresOfAllPairs() {
         List<Integer> pairs = new ArrayList<>();
         for (int face = 6; face >= 1; face--) {
             int finalFace = face;
-            int amountOfFaces = (int) Arrays.stream(dice)
-                    .filter(number -> number == finalFace)
-                    .count();
+            int amountOfFaces = getAmoutOfEqualFaces(finalFace);
             if (amountOfFaces == 2) pairs.add(face*2);
         }
 
@@ -161,4 +125,5 @@ public class Yahtzee {
         }
         return sum;
     }
+
 }
